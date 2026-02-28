@@ -9,7 +9,7 @@ class Client: #Client class to associate an individual client to his related dat
         self.cpf = cliente_cpf
         
 
-def catching_data(): #Function used to catch client infomations
+def catching_client_data(): #Function used to catch client infomations
     client_name = input("Digite o seu nome completo: ")
     client_email = input("Digite seu email: ")
 
@@ -23,21 +23,27 @@ def catching_data(): #Function used to catch client infomations
 
     while True:
             cliente_cpf = input("Digite o seu cpf: ")
-            if (len(cliente_cpf) == 11):
+
+            if not cliente_cpf.isdigit():
+                print("Cpf deve conter apenas números. Insira um cpf válido.")
+                continue
+
+            if len(cliente_cpf) == 11:
                 break
 
-            elif(len(cliente_cpf) > 11):
+            elif len(cliente_cpf) > 11:
                 print("Cpf muito longo. Insira um cpf válido.")
 
             else:
                 print("Cpf muito curto. Insira um cpf válido.")
 
-    client_data = [cliente_cpf, client_name, client_email,cliente_birthday]
+    client_data = {
+        "Name" : client_name,
+        "Email" : client_email,
+        "Birthday" : cliente_birthday,
+        "Cpf" : cliente_cpf
+    }
     return client_data
-
-
-
-
 
 
 
