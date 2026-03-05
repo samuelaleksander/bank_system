@@ -22,7 +22,7 @@ class Client: #Client class to associate an individual client to his related dat
             except:
                 print("Formato de data inválido.")
 
-        while True:
+        while True :
             cliente_cpf = input("Digite o seu cpf: ")
 
             if not cliente_cpf.isdigit():
@@ -38,13 +38,18 @@ class Client: #Client class to associate an individual client to his related dat
             else:
                 print("Cpf muito curto. Insira um cpf válido.")
 
-        client_data = {
-            "Name": client_name,
-            "Email": client_email,
-            "Birthday": cliente_birthday,
-            "Cpf": cliente_cpf
-        }
-        return client_data
+        new_client_instance = cls(
+            cliente_cpf=cliente_cpf,
+            cliente_name=client_name,
+            cliente_email=client_email,
+            cliente_birthday=cliente_birthday
+        )
+        return new_client_instance
+
+
+
+
+
 
 
 
